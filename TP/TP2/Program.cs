@@ -50,7 +50,7 @@ namespace TP2
             Console.WriteLine(Environment.NewLine);
             //Moyenne des facture
             Console.WriteLine("Moyenne des facture");
-            var moyenneFacture = ListeAuteurs.Average(a => a.Factures.Sum(f => f.Montant));
+            var moyenneFacture = ListeAuteurs.Where(a => a.Factures.Count > 0).Average(a => a.Factures.Average(f => f.Montant));
             Console.WriteLine(moyenneFacture);
 
             Console.WriteLine(Environment.NewLine);
