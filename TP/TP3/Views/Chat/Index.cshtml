@@ -1,0 +1,25 @@
+﻿@using TP.Models
+
+@model List<Chat>
+
+<h2>Index</h2>
+
+<table>
+    <thead>
+    <th>Id</th>
+    <th>Nom</th>
+    <th>Age</th>
+    <th>Couleur</th>
+    </thead>
+    @foreach (var cat in Model)
+    {
+        <tr>
+            <td>@cat.Id</td>
+            <td>@cat.Nom</td>
+            <td>@cat.Age</td>
+            <td>@cat.Couleur</td>
+            <td><a href="@Url.Action("Details","Chat", new { id = cat.Id })">Détails</a>|<a href="@Url.Action("Delete","Chat", new { id = cat.Id })">Delete</a></td>
+        </tr>
+    }
+</table>
+

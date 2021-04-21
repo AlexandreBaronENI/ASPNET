@@ -1,0 +1,9 @@
+﻿@using TP.Models
+
+@model Chat
+
+<h2>Details</h2>
+
+@Html.Partial("Chat/_DetailChat", Model)
+
+<a href="@Url.Action("Index","Chat")">Retourner à la liste</a>

@@ -1,0 +1,17 @@
+﻿@using TP.Models
+
+@model Chat
+
+<h2>Etes vous sur de vouloir supprimer ce chat ?</h2>
+
+@Html.Partial("Chat/_DetailChat", Model)
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-actions">
+    <input type="submit" value="Supprimer" /> | <a href="@Url.Action("Index","Chat")">Retourner à la liste</a>
+</div>
+}
+
