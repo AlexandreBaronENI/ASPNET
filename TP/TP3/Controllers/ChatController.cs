@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using TP.Models;
 
@@ -9,13 +7,13 @@ namespace TP3.Controllers
 {
     public class ChatController : Controller
     {
-        private static List<Chat> chats;
-        public List<Chat> Chats => chats ?? (chats = Chat.GetMeuteDeChats());
+        private static List<Chat> cats;
+        public List<Chat> Cats => cats ?? (cats = Chat.GetMeuteDeChats());
 
         // GET: Chat
         public ActionResult Index()
         {
-            var allCats = Chats;
+            var allCats = Cats;
 
             return View(allCats);
         }
@@ -23,7 +21,7 @@ namespace TP3.Controllers
         // GET: Chat/Details/5
         public ActionResult Details(int id)
         {
-            var cat = Chats.FirstOrDefault(c => c.Id == id);
+            var cat = Cats.FirstOrDefault(c => c.Id == id);
 
             return View(cat);
         }
@@ -31,7 +29,7 @@ namespace TP3.Controllers
         // GET: Chat/Delete/5
         public ActionResult Delete(int id)
         {
-            var cat = Chats.FirstOrDefault(c => c.Id == id);
+            var cat = Cats.FirstOrDefault(c => c.Id == id);
             if (cat == null)
             {
                 return RedirectToAction("Index");
@@ -46,10 +44,10 @@ namespace TP3.Controllers
         {
             try
             {
-                var chat = Chats.FirstOrDefault(c => c.Id == id);
-                if (chat != null)
+                var cat = Cats.FirstOrDefault(c => c.Id == id);
+                if (cat != null)
                 {
-                    Chats.Remove(chat);
+                    Cats.Remove(cat);
                 }
 
                 return RedirectToAction("Index");
@@ -58,7 +56,6 @@ namespace TP3.Controllers
             {
                 return View();
             }
-            return RedirectToAction("Index");
         }
     }
 }
