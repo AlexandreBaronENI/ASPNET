@@ -1,0 +1,14 @@
+﻿@model BO.Pizza
+
+<p>@Model.Nom</p>
+<h2>Pâte</h2>
+<p>@Model.Pate.Nom</p>
+
+<h2>Ingrédients</h2>
+<ul>
+    @foreach (var ingredient in Model.Ingredients)
+    {
+        <li>@ingredient.Nom</li>
+    }
+
+</ul>

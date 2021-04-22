@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "m+KXQeKwAmx9RyyxpdYirOGtPy8GJHLf67bT33yJzhhCK0KRSpjOgoj15k8WyHVaRbdU4O9Wvn1PgoEjHmxLOg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Alexandre\\Documents\\Developpement\\ENI\\ASPNET\\TP\\TP5\\BO\\BO.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Alexandre\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Alexandre\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

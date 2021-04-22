@@ -1,0 +1,27 @@
+﻿@model List<BO.Pizza>
+
+<h2>Index</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Pate</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pizza in Model)
+        {
+            <tr>
+                <td>@pizza.Id</td>
+                <td>@pizza.Nom</td>
+                <td>@pizza.Pate.Nom</td>
+                <td><a class="btn btn-primary" href="@Url.Action("Details","Pizza", new { id = pizza.Id })">Détails</a><a class="btn btn-primary" href="@Url.Action("Delete","Pizza", new { id = pizza.Id })">Delete</a><a class="btn btn-primary" href="@Url.Action("Edit","Pizza", new { id = pizza.Id })">Modifier</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a class="btn btn-primary" href="@Url.Action("Create","Pizza")">Créer une pizza</a>

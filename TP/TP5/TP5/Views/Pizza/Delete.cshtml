@@ -1,0 +1,17 @@
+﻿@using TP5.Helpers
+
+@model TP5.Models.ViewModels.PizzaViewModel
+
+<h2>Etes vous sur de vouloir supprimer cette pizza ?</h2>
+
+@Html.Partial("Pizza/_Details", Model.Pizza)
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.CustomSubmit(Model, "Supprimer")
+}
+
