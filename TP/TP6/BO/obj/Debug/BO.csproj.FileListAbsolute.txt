@@ -1,0 +1,6 @@
+C:\Users\Alexandre\Documents\Developpement\ENI\ASPNET\TP\TP6\BO\bin\Debug\BO.dll
+C:\Users\Alexandre\Documents\Developpement\ENI\ASPNET\TP\TP6\BO\bin\Debug\BO.pdb
+C:\Users\Alexandre\Documents\Developpement\ENI\ASPNET\TP\TP6\BO\obj\Debug\BO.csproj.CoreCompileInputs.cache
+C:\Users\Alexandre\Documents\Developpement\ENI\ASPNET\TP\TP6\BO\obj\Debug\BO.dll
+C:\Users\Alexandre\Documents\Developpement\ENI\ASPNET\TP\TP6\BO\obj\Debug\BO.pdb
+C:\Users\Alexandre\Documents\Developpement\ENI\ASPNET\TP\TP6\BO\obj\Debug\BO.csprojAssemblyReference.cache
