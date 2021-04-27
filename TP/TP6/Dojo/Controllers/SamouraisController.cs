@@ -54,7 +54,7 @@ namespace Dojo.Controllers
             {
                 var samourai = vm.Samourai;
 
-                samourai.Arme = db.Armes.FirstOrDefault(a => a.Id == vm.ArmeIdSelected);
+                samourai.Arme = db.Armes.Find(vm.ArmeIdSelected);
                 
                 db.Samourais.Add(samourai);
                 db.SaveChanges();
@@ -89,11 +89,13 @@ namespace Dojo.Controllers
         {
             if (ModelState.IsValid)
             {
-                var samourai = vm.Samourai;
+                var samourai = db.Samourais.Include(s => s.Arme).SingleOrDefault(s => s.Id == vm.Samourai.Id);
+
+                samourai.Arme = db.Armes.Find(vm.ArmeIdSelected);
+                samourai.Nom = vm.Samourai.Nom;
+                samourai.Force = vm.Samourai.Force;
 
                 db.Entry(samourai).State = EntityState.Modified;
-                
-                samourai.Arme = db.Armes.FirstOrDefault(a => a.Id == vm.ArmeIdSelected);
 
                 db.SaveChanges();
                 return RedirectToAction("Index");
