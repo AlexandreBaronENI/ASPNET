@@ -182,5 +182,5 @@ C:\Users\Alexandre\Documents\Developpement\ENI\ASPNET\TP\TP7\Dojo\obj\Debug\Dojo
 C:\Users\Alexandre\Documents\Developpement\ENI\ASPNET\TP\TP7\Dojo\obj\Debug\Dojo.csproj.CopyComplete
 C:\Users\Alexandre\Documents\Developpement\ENI\ASPNET\TP\TP7\Dojo\obj\Debug\Dojo.dll
 C:\Users\Alexandre\Documents\Developpement\ENI\ASPNET\TP\TP7\Dojo\obj\Debug\Dojo.pdb
-C:\Users\Alexandre\Documents\Developpement\ENI\ASPNET\TP\TP7\Dojo\obj\Debug\Dojo.Migrations.initial.resources
+C:\Users\Alexandre\Documents\Developpement\ENI\ASPNET\TP\TP7\Dojo\obj\Debug\Dojo.Migrations.InitialCreate.resources
 C:\Users\Alexandre\Documents\Developpement\ENI\ASPNET\TP\TP7\Dojo\obj\Debug\Dojo.csproj.GenerateResource.cache

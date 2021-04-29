@@ -56,11 +56,9 @@ namespace Dojo.Controllers
 
                 samourai.Arme = db.Armes.Find(vm.ArmeIdSelected);
 
-                foreach (var id in vm.ListeIdArtsMartiauxSelected)
+                if (vm.ListeIdArtsMartiauxSelected != null)
                 {
-                    var ingredient = db.ArtMartials.FirstOrDefault(p => p.Id == id);
-                    if (ingredient != null)
-                        samourai.ArtsMartiaux.Add(ingredient);
+                    vm.Samourai.ArtsMartiaux = db.ArtsMartiaux.Where(x => vm.ListeIdArtsMartiauxSelected.Contains(x.Id)).ToList();
                 }
 
                 db.Samourais.Add(samourai);
@@ -101,17 +99,15 @@ namespace Dojo.Controllers
                 samourai.Arme = db.Armes.Find(vm.ArmeIdSelected);
                 samourai.Nom = vm.Samourai.Nom;
                 samourai.Force = vm.Samourai.Force;
-
-                samourai.ArtsMartiaux = new List<ArtMartial>();
-                foreach (var id in vm.ListeIdArtsMartiauxSelected)
+                if(vm.ListeIdArtsMartiauxSelected != null)
                 {
-                    var ingredient = db.ArtMartials.FirstOrDefault(p => p.Id == id);
-                    if (ingredient != null)
-                        samourai.ArtsMartiaux.Add(ingredient);
+                    samourai.ArtsMartiaux = new List<ArtMartial>();
+                    samourai.ArtsMartiaux = db.ArtsMartiaux.Where(x => vm.ListeIdArtsMartiauxSelected.Contains(x.Id)).ToList();
                 }
 
                 db.Entry(samourai).State = EntityState.Modified;
 
+                
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -156,24 +152,12 @@ namespace Dojo.Controllers
 
         private SamouraiViewModel GetSamouraiViewModel(Samourai samourai)
         {
-            var armes = db.Armes.Except(db.Samourais.Where(s => s.Arme != null).Select(s => s.Arme)).Select(a => new SelectListItem
-            {
-                Text = a.Nom,
-                Value = a.Id.ToString()
-            });
-
-            var artsMartiaux = db.ArtMartials.Select(a => new SelectListItem
-            {
-                Text = a.Nom,
-                Value = a.Id.ToString()
-            });
-
             return new SamouraiViewModel()
             {
-                Armes = new SelectList(armes, "Value", "Text"),
+                Armes = new SelectList(db.Armes.Where(x => !db.Samourais.Select(y => y.Arme.Id).Contains(x.Id)).ToList(), "Id", "Nom"),
                 Samourai = samourai,
                 ArmeIdSelected = samourai.Arme?.Id,
-                ListeArtsMartiaux = new MultiSelectList(artsMartiaux, "Value", "Text", null, samourai.ArtsMartiaux?.Select(p => p.Id))
+                ListeArtsMartiaux = new MultiSelectList(db.ArtsMartiaux, "Id", "Nom", null, samourai.ArtsMartiaux?.Select(p => p.Id))
             };
         }
     }

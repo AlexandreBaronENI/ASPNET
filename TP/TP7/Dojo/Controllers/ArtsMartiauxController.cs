@@ -14,7 +14,7 @@ namespace Dojo.Controllers
         // GET: ArtMartials
         public ActionResult Index()
         {
-            return View(db.ArtMartials.ToList());
+            return View(db.ArtsMartiaux.ToList());
         }
 
         // GET: ArtMartials/Details/5
@@ -24,7 +24,7 @@ namespace Dojo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ArtMartial artMartial = db.ArtMartials.Find(id);
+            ArtMartial artMartial = db.ArtsMartiaux.Find(id);
             if (artMartial == null)
             {
                 return HttpNotFound();
@@ -47,7 +47,7 @@ namespace Dojo.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.ArtMartials.Add(artMartial);
+                db.ArtsMartiaux.Add(artMartial);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -62,7 +62,7 @@ namespace Dojo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ArtMartial artMartial = db.ArtMartials.Find(id);
+            ArtMartial artMartial = db.ArtsMartiaux.Find(id);
             if (artMartial == null)
             {
                 return HttpNotFound();
@@ -93,7 +93,7 @@ namespace Dojo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ArtMartial artMartial = db.ArtMartials.Find(id);
+            ArtMartial artMartial = db.ArtsMartiaux.Find(id);
             if (artMartial == null)
             {
                 return HttpNotFound();
@@ -106,8 +106,8 @@ namespace Dojo.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ArtMartial artMartial = db.ArtMartials.Find(id);
-            db.ArtMartials.Remove(artMartial);
+            ArtMartial artMartial = db.ArtsMartiaux.Find(id);
+            db.ArtsMartiaux.Remove(artMartial);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

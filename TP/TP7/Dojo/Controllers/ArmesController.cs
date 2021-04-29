@@ -93,11 +93,19 @@ namespace Dojo.Controllers
         // GET: Armes/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null || db.Samourais.Where(s => s.Arme.Id == id).Count() > 0)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Arme arme = db.Armes.Find(id);
+
+            if (db.Samourais.Include(x => x.Arme).Any(x => x.Arme.Id == arme.Id))
+            {
+                ModelState.AddModelError("error", "L'arme appartient à un Samourai");
+                return RedirectToAction("Index", "Samourais");
+            }
+
             if (arme == null)
             {
                 return HttpNotFound();

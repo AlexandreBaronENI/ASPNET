@@ -9,7 +9,7 @@ namespace Dojo.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
             ContextKey = "Dojo.Data.DojoContext";
         }
 

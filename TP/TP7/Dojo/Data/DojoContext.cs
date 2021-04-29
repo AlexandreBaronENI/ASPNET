@@ -1,10 +1,5 @@
 ﻿using BO;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
-using System.Web;
 
 namespace Dojo.Data
 {
@@ -14,17 +9,17 @@ namespace Dojo.Data
         {
         }
 
-        public System.Data.Entity.DbSet<BO.Arme> Armes { get; set; }
+        public DbSet<BO.Arme> Armes { get; set; }
 
-        public System.Data.Entity.DbSet<BO.Samourai> Samourais { get; set; }
+        public DbSet<BO.Samourai> Samourais { get; set; }
 
-        public System.Data.Entity.DbSet<BO.ArtMartial> ArtMartials { get; set; }
+        public DbSet<BO.ArtMartial> ArtsMartiaux { get; set; }
 
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-        //    base.OnModelCreating(modelBuilder);
-
-        //}
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Samourai>().HasOptional(x => x.Arme).WithOptionalPrincipal();
+            modelBuilder.Entity<Samourai>().HasMany(x => x.ArtsMartiaux).WithMany();
+        }
     }
 }

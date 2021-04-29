@@ -26,7 +26,8 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
 <tr>
     <td>
         @Html.DisplayFor(modelItem => item.Force)
@@ -38,9 +39,17 @@
         @Html.DisplayFor(modelItem => item.Arme.Nom)
     </td>
     <td>
-        @foreach (var artMartial in item.ArtsMartiaux)
-        {
-            <p>@artMartial.Nom</p>
+        @{ 
+            if (item.ArtsMartiaux != null && item.ArtsMartiaux.Count > 0) {
+                foreach (var artMartial in item.ArtsMartiaux)
+                {
+                    <p>@artMartial.Nom</p>
+                }
+            }
+            else
+            {
+                <p class="text-danger">Pas d'art martial</p>
+            }
         }
     </td>
     <td>

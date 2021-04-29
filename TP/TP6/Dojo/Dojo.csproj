@@ -127,15 +127,16 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ArmesController.cs" />
+    <Compile Include="Controllers\ArtMartialsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SamouraisController.cs" />
     <Compile Include="Data\DojoContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202104261143441_InitialCreate.cs" />
-    <Compile Include="Migrations\202104261143441_InitialCreate.Designer.cs">
-      <DependentUpon>202104261143441_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202104281216542_InitialCreate.cs" />
+    <Compile Include="Migrations\202104281216542_InitialCreate.Designer.cs">
+      <DependentUpon>202104281216542_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ViewModel\SamouraiViewModel.cs" />
@@ -189,6 +190,11 @@
     <Content Include="Views\Samourais\Index.cshtml" />
     <Content Include="Views\Samourais\_Form.cshtml" />
     <Content Include="Views\Samourais\_DetailsSnippet.cshtml" />
+    <Content Include="Views\ArtMartials\Create.cshtml" />
+    <Content Include="Views\ArtMartials\Delete.cshtml" />
+    <Content Include="Views\ArtMartials\Details.cshtml" />
+    <Content Include="Views\ArtMartials\Edit.cshtml" />
+    <Content Include="Views\ArtMartials\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -213,8 +219,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202104261143441_InitialCreate.resx">
-      <DependentUpon>202104261143441_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202104281216542_InitialCreate.resx">
+      <DependentUpon>202104281216542_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
